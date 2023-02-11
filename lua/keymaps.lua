@@ -28,10 +28,10 @@ end
 -- window manager
 -- for more bindings, refer to:
 -- https://neovim.io/doc/user/windows.html#window-move-cursor
-vim.keymap.set('n', "<leader>h", ":wincmd h<CR>")
-vim.keymap.set('n', "<leader>j", ":wincmd j<CR>")
-vim.keymap.set('n', "<leader>k", ":wincmd k<CR>")
-vim.keymap.set('n', "<leader>l", ":wincmd l<CR>")
+vim.keymap.set('n', "<leader>wh", ":wincmd h<CR>")
+vim.keymap.set('n', "<leader>wj", ":wincmd j<CR>")
+vim.keymap.set('n', "<leader>wk", ":wincmd k<CR>")
+vim.keymap.set('n', "<leader>wl", ":wincmd l<CR>")
 vim.keymap.set('n', "<leader>ws", ":split<CR>")
 vim.keymap.set('n', "<leader>wv", ":vsplit<CR>")
 vim.keymap.set('n', "<leader>wo", ":wincmd o<CR>")
