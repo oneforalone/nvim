@@ -79,4 +79,3 @@ require('lualine').setup {
   }
 }
 
-vim.keymap.set('n', '<Space>b', ':LualineBuffersJump! ')
