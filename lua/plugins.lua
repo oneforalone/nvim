@@ -84,12 +84,7 @@ return require('packer').startup(function(use)
       require('fold-cycle').setup()
     end
   }
-  -- window manager
---  use {
---    'https://gitlab.com/yorickpeterse/nvim-window/lua/nvim-window.lua',
---    as = 'nvim-window'
---  }
---
+
   -- Zen mode
   use "Pocco81/true-zen.nvim"
 
