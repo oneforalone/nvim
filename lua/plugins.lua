@@ -88,6 +88,14 @@ return require('packer').startup(function(use)
   -- Zen mode
   use "Pocco81/true-zen.nvim"
 
+  -- auto-save
+  use {
+    "Pocco81/auto-save.nvim",
+    config = function()
+      require("auto-save").setup()
+    end
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

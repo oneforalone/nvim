@@ -77,3 +77,12 @@ cmp.setup({
       end,
   },
 })
+
+-- for c family language
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+require'lspconfig'.clangd.setup {
+  capabilities = capabilities,
+}
+
+-- Auto formatting on save
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
