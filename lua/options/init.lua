@@ -1,4 +1,3 @@
-require("options.gruvbox")
 require("options.lualine")
 require("options.nvim-tree")
 require("options.blankline")
