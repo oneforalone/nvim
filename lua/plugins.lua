@@ -18,7 +18,6 @@ return require('packer').startup(function(use)
   -- file browser: nvim-tree
   use {
     'nvim-tree/nvim-tree.lua',
-     tag = 'nightly',
      requires = { 'nvim-tree/nvim-web-devicons' }
   }
   -- status line: lualine
@@ -33,7 +32,7 @@ return require('packer').startup(function(use)
   -- fuzzy finder
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope.nvim'
-  
+
   -- For rust ide configurations
   -- from https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
   use {
