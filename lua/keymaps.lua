@@ -54,94 +54,22 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
--- rust-tools
-local rt = require("rust-tools")
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<S-Space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
-})
-
--- Comment
-require('Comment').setup({
-    ---Add a space b/w comment and the line
-    padding = true,
-    ---Whether the cursor should stay at its position
-    sticky = true,
-    ---Lines to be ignored while (un)comment
-    ignore = nil,
-    ---LHS of toggle mappings in NORMAL mode
-    toggler = {
-        ---Line-comment toggle keymap
-        line = 'gcc',
-        ---Block-comment toggle keymap
-        block = 'gbc',
-    },
-    ---LHS of operator-pending mappings in NORMAL and VISUAL mode
-    opleader = {
-        ---Line-comment keymap
-        line = 'gc',
-        ---Block-comment keymap
-        block = 'gb',
-    },
-    ---LHS of extra mappings
-    extra = {
-        ---Add comment on the line above
-        above = 'gcO',
-        ---Add comment on the line below
-        below = 'gco',
-        ---Add comment at the end of line
-        eol = 'gcA',
-    },
-    ---Enable keybindings
-    ---NOTE: If given `false` then the plugin won't create any mappings
-    mappings = {
-        ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
-        basic = true,
-        ---Extra mapping; `gco`, `gcO`, `gcA`
-        extra = true,
-    },
-    ---Function to call before (un)comment
-    pre_hook = nil,
-    ---Function to call after (un)comment
-    post_hook = nil,
-})
-
--- Zen-mode
-local truezen = require('true-zen')
-vim.keymap.set('n', '<leader>zn', function()
-  local first = 0
-  local last = vim.api.nvim_buf_line_count(0)
-  truezen.narrow(first, last)
-end, { noremap = true })
-vim.keymap.set('v', '<leader>zn', function()
-  local first = vim.fn.line('v')
-  local last = vim.fn.line('.')
-  truezen.narrow(first, last)
-end, { noremap = true })
-vim.keymap.set('n', '<leader>zf', truezen.focus, { noremap = true })
-vim.keymap.set('n', '<leader>zm', truezen.minimalist, { noremap = true })
-vim.keymap.set('n', '<leader>za', truezen.ataraxis, { noremap = true })
-
 -- FloaTerm
 vim.keymap.set('n', "<leader>ft", ":FloatermNew --name=iTerm --height=0.8 --width=0.7 --autoclose=2 zsh <CR> ")
 vim.keymap.set('n', "t", ":FloatermToggle iTerm<CR>")
 vim.keymap.set('t', "<Esc>", "<C-\\><C-n>:q<CR>")
 
--- Vimspector
-vim.cmd([[
-nmap <F9> <cmd>call vimspector#Launch()<cr>
-nmap <F5> <cmd>call vimspector#StepOver()<cr>
-nmap <F8> <cmd>call vimspector#Reset()<cr>
-nmap <F11> <cmd>call vimspector#StepOver()<cr>")
-nmap <F12> <cmd>call vimspector#StepOut()<cr>")
-nmap <F10> <cmd>call vimspector#StepInto()<cr>")
-]])
-vim.keymap.set('n', "Db", ":call vimspector#ToggleBreakpoint()<cr>")
-vim.keymap.set('n', "Dw", ":call vimspector#AddWatch()<cr>")
-vim.keymap.set('n', "De", ":call vimspector#Evaluate()<cr>")
+-- -- Vimspector
+-- vim.cmd([[
+-- nmap <F9> <cmd>call vimspector#Launch()<cr>
+-- nmap <F5> <cmd>call vimspector#StepOver()<cr>
+-- nmap <F8> <cmd>call vimspector#Reset()<cr>
+-- nmap <F11> <cmd>call vimspector#StepOver()<cr>")
+-- nmap <F12> <cmd>call vimspector#StepOut()<cr>")
+-- nmap <F10> <cmd>call vimspector#StepInto()<cr>")
+-- ]])
+-- vim.keymap.set('n', "Db", ":call vimspector#ToggleBreakpoint()<cr>")
+-- vim.keymap.set('n', "Dw", ":call vimspector#AddWatch()<cr>")
+-- vim.keymap.set('n', "De", ":call vimspector#Evaluate()<cr>")
+
+vim.api.nvim_set_keymap('n', '<CR>', '<cmd>FineCmdline<CR>', {noremap = true})
